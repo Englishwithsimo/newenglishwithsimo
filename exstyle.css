@@ -1,4 +1,4 @@
- /* Container Styles */
+   /* Container Styles */
 .exercise-container {
     background: Thistle;
     width: 100%;
@@ -85,7 +85,6 @@ input[type="text"], select {
     border-radius: 6px;
     font-size: 16px;
     text-align: center;
-    width:120px;
     max-width: 200px;
     transition: all 0.3s ease;
 }
