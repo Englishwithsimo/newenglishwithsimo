@@ -25,15 +25,27 @@ class Exercise {
             const parts = question.text.split('___');
             
             parts.forEach((part, index) => {
-                // Add the text part
-                sentenceDiv.appendChild(document.createTextNode(part));
+                // Split the text part by newlines
+                const lines = part.split('\n');
+                
+                // Add each line with a break
+                lines.forEach((line, lineIndex) => {
+                    // Create a span for the text to handle HTML
+                    const textSpan = document.createElement('span');
+                    textSpan.innerHTML = line;
+                    sentenceDiv.appendChild(textSpan);
+                    
+                    // If not the last line, add a line break
+                    if (lineIndex < lines.length - 1) {
+                        sentenceDiv.appendChild(document.createElement('br'));
+                    }
+                });
                 
                 // If this isn't the last part, add an input/select
                 if (index < parts.length - 1) {
                     if (question.type === 'input') {
                         const input = document.createElement('input');
                         input.type = 'text';
-                        // Handle both single string and array of correct answers
                         const correctAnswer = Array.isArray(question.correct) 
                             ? question.correct[index] 
                             : question.correct;
@@ -41,19 +53,16 @@ class Exercise {
                         sentenceDiv.appendChild(input);
                     } else if (question.type === 'select') {
                         const select = document.createElement('select');
-                        // Handle both single string and array of correct answers
                         const correctAnswer = Array.isArray(question.correct) 
                             ? question.correct[index] 
                             : question.correct;
                         select.setAttribute('data-correct', correctAnswer);
                         
-                        // Add default option
                         const defaultOption = document.createElement('option');
                         defaultOption.value = '';
                         defaultOption.textContent = 'Choose answer...';
                         select.appendChild(defaultOption);
                         
-                        // Handle both single array and array of arrays for options
                         const options = Array.isArray(question.options[0]) 
                             ? question.options[index] 
                             : question.options;
