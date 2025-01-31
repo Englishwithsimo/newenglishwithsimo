@@ -22,10 +22,7 @@
             font-weight: bold;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
-        h2 { color: #3498db; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        .exercise-container { background: white; width:100%; direction:ltr; margin-bottom: 40px; padding: 10px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        .exercise-container { background: white; width:100%; direction:ltr; margin-bottom: 40px; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
         .exercise-container:hover { transform: translateY(-5px); }
         .sentence { margin: 25px 0; font-size: 18px; display: block; font-weight:bold; text-align:left; direction:ltr; align-items:left; padding: 15px; background: #f8f9fa; border-radius: 10px; position: relative; }
         .sentence::before { content: counter(sentence-counter); counter-increment: sentence-counter; position: absolute; left: -40px; width: 30px; height: 30px; background: #3498db; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; }
